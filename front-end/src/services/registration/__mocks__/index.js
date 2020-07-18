@@ -5,5 +5,6 @@ export default {
         ? resolve({result: 'success'})
         : reject(new Error('User already exist'))
     })
+
   }
 }
