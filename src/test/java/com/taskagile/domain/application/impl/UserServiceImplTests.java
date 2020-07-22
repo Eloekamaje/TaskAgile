@@ -18,7 +18,7 @@ import com.taskagile.domain.model.user.RegistrationException;
 import com.taskagile.domain.model.user.RegistrationManagement;
 import com.taskagile.domain.model.user.User;
 import com.taskagile.domain.model.user.UsernameExistsException;
-import com.taskagile.domain.model.user.event.UserRegisteredEvent;
+import com.taskagile.domain.model.user.events.UserRegisteredEvent;
 
 public class UserServiceImplTests {
 

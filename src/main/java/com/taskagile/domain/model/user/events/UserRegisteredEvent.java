@@ -1,4 +1,4 @@
-package com.taskagile.domain.model.user.event;
+package com.taskagile.domain.model.user.events;
 
 import org.springframework.util.Assert;
 
