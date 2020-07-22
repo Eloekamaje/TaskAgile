@@ -100,7 +100,8 @@ export default {
       registrationService.register(this.form).then(() => {
         this.$router.push({ name: 'LoginPage' })
       }).catch((error) => {
-        this.errorMessage = 'Failed to register user. ' + error.message
+        console.log(Object.values(error))
+        this.errorMessage = 'Failed to register user. ' + error.response.data.message
       })
     }
   }
