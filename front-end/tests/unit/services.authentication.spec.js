@@ -1,13 +1,27 @@
 import moxios from 'moxios'
-import registrationService from '@/services/registration'
+import authenticationService from '@/services/authentication'
 
-describe('services/registration', () => {
+describe('services/authentication', () => {
   beforeEach(() => {
     moxios.install()
   })
 
   afterEach(() => {
     moxios.uninstall()
+  })
+
+  it('should call `/authentications` API', () => {
+    expect.assertions(1)
+    moxios.wait(() => {
+      let request = moxios.requests.mostRecent()
+      expect(request.url).toEqual('/authentications')
+      request.respondWith({
+        response: {
+          status: 200,
+          result: 'success'}
+      })
+    })
+    return authenticationService.authenticate()
   })
 
   it('should pass the response to caller when request succeeded', () => {
@@ -21,7 +35,7 @@ describe('services/registration', () => {
           result: 'success'}
       })
     })
-    return registrationService.register().then(data => {
+    return authenticationService.authenticate().then(data => {
       expect(data.result).toEqual('success')
     })
   })
@@ -38,7 +52,7 @@ describe('services/registration', () => {
         }
       })
     })
-    return registrationService.register().catch(error => {
+    return authenticationService.authenticate().catch(error => {
       expect(error.message).toEqual('Bad request')
     })
   })
