@@ -10,6 +10,20 @@ describe('services/registration', () => {
     moxios.uninstall()
   })
 
+  it('should call `/registrations` API', () => {
+    expect.assertions(1)
+    moxios.wait(() => {
+      let request = moxios.requests.mostRecent()
+      expect(request.url).toEqual('/registrations')
+      request.respondWith({
+        response: {
+          status: 200,
+          result: 'success'}
+      })
+    })
+    return authenticationService.authenticate()
+  })
+
   it('should pass the response to caller when request succeeded', () => {
     expect.assertions(2)
     moxios.wait(() => {
