@@ -17,6 +17,7 @@ import com.taskagile.domain.model.user.EmailAddressExistsException;
 import com.taskagile.domain.model.user.RegistrationException;
 import com.taskagile.domain.model.user.RegistrationManagement;
 import com.taskagile.domain.model.user.User;
+import com.taskagile.domain.model.user.UserRepository;
 import com.taskagile.domain.model.user.UsernameExistsException;
 import com.taskagile.domain.model.user.events.UserRegisteredEvent;
 
@@ -25,6 +26,7 @@ public class UserServiceImplTests {
   private RegistrationManagement registrationManagementMock;
   private DomainEventPublisher domainEventPublisherMock;
   private MailManager mailManagerMock;
+  private UserRepository userRepositoryMock;
   private UserServiceImpl instance;
 
   @Before
@@ -32,7 +34,9 @@ public class UserServiceImplTests {
     registrationManagementMock = mock(RegistrationManagement.class);
     domainEventPublisherMock = mock(DomainEventPublisher.class);
     mailManagerMock = mock(MailManager.class);
-    instance = new UserServiceImpl(registrationManagementMock, domainEventPublisherMock, mailManagerMock);
+    userRepositoryMock = mock(UserRepository.class);
+    instance = new UserServiceImpl(registrationManagementMock, domainEventPublisherMock, 
+    		mailManagerMock, userRepositoryMock);
   }
 
   @Test(expected = IllegalArgumentException.class)
