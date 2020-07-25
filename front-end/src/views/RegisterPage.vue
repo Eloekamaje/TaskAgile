@@ -3,6 +3,7 @@
     <div class="row justify-content-center">
       <div class="register-form">
         <Logo/>
+        <div class="form-title">Sign Up</div>
         <form @submit.prevent="submitForm">
           <div v-show="errorMessage" class="alert alert-danger failed">{{ errorMessage }}</div>
           <div class="form-group">
@@ -93,7 +94,7 @@ export default {
       }
 
       registrationService.register(this.form).then(() => {
-        this.$router.push({ name: 'LoginPage' })
+        this.$router.push({ name: 'login' })
       }).catch((error) => {
         this.errorMessage = 'Failed to register user. ' + error.message
       })
@@ -105,6 +106,13 @@ export default {
 <style lang="scss" scoped>
 .container {
   max-width: 900px;
+}
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: #555;
 }
 .register-form {
   margin-top: 50px;

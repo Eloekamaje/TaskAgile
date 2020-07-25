@@ -3,6 +3,7 @@
     <div class="row justify-content-center">
       <div class="form">
         <Logo/>
+        <div class="form-title">Sign In</div>
         <form @submit.prevent="submitForm">
           <div v-show="errorMessage" class="alert alert-danger failed">{{ errorMessage }}</div>
           <div class="form-group">
@@ -82,6 +83,13 @@ export default {
 <style lang="scss" scoped>
 .container {
   max-width: 900px;
+}
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: #555;
 }
 .form {
   margin-top: 50px;

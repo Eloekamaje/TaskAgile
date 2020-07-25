@@ -21,7 +21,7 @@ describe('services/registration', () => {
           result: 'success'}
       })
     })
-    return authenticationService.authenticate()
+    return registrationService.register()
   })
 
   it('should pass the response to caller when request succeeded', () => {

@@ -1,4 +1,4 @@
-package com.taskagile.domain.common.mail;
+package com.taskagile.infrastructure.mail;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -9,6 +9,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+
+import com.taskagile.domain.common.mail.Mailer;
+import com.taskagile.domain.common.mail.Message;
 
 @Component
 public class AsyncMailer implements Mailer {

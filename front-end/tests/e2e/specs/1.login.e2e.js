@@ -30,7 +30,7 @@ module.exports = {
       .assert.urlEquals(browser.launchUrl + 'login')
       .end()
   },
-  'login with username': function (browser) {
+  /*'login with username': function (browser) {
     const loginPage = browser.page.LoginPage()
     const homePage = browser.page.HomePage()
     loginPage
@@ -59,5 +59,5 @@ module.exports = {
       .expect.element('@pageTitle').text.to.contain('Home Page')
 
     browser.end()
-  }
+  }*/
 }

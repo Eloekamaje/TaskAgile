@@ -60,8 +60,8 @@ public class User extends AbstractBaseEntity {
     return user;
   }
 
-  public Long getId() {
-    return id;
+  public UserId getId() {
+    return new UserId(id);
   }
 
   public String getUsername() {
