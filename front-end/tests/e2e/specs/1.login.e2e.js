@@ -30,7 +30,7 @@ module.exports = {
       .assert.urlEquals(browser.launchUrl + 'login')
       .end()
   },
-  /*'login with username': function (browser) {
+  'login with username': function (browser) {
     const loginPage = browser.page.LoginPage()
     const homePage = browser.page.HomePage()
     loginPage
@@ -41,8 +41,7 @@ module.exports = {
 
     homePage
       .navigate()
-      .expect.element('@pageTitle').text.to.contain('Home Page')
-
+      .assert.visible('@logoImage')
     browser.end()
   },
   'login with email address': function (browser) {
@@ -56,8 +55,8 @@ module.exports = {
 
     homePage
       .navigate()
-      .expect.element('@pageTitle').text.to.contain('Home Page')
+      .assert.visible('@logoImage')
 
     browser.end()
-  }*/
+  }
 }
